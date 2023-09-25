@@ -82,12 +82,15 @@
 
 /*==================== BASE ====================*/
 * {
+  /* on an element, padding and border are included in the width and height,
+  want all elements on their pages to work this way */
   box-sizing: border-box;
   padding: 0;
   margin: 0;
 }
 
 html {
+  /* smoothly animate the scroll position */
   scroll-behavior: smooth;
 }
 
@@ -98,6 +101,7 @@ body {
   background-color: var(--body-color);
   color: var(--text-color);
   line-height: 150%;
+  /* both edges of each line are aligned with both edges of the container, creating a straight edge on both sides */
   text-align:justify;
 }
 
@@ -114,21 +118,32 @@ h1, h2, h3, h4 {
 a {
   text-decoration: none;
 }
-
+/* a normal, unvisited link */
 a:link {
   color:#224b8d;
 }
+/* a link the user has visited */
 a:visited {
   color:#224b8d;
 }
+/* a link when the user mouses over it */
 a:hover {
   color:#f09228;
 }
 
 img {
+  /* the image will scale down if it has to,
+  but never scale up to be larger than its original size */
   max-width: 100%;
   height: auto;
 }
+
+td {
+  /* make the cell and adding data to the cell */
+  display: table-cell;
+  vertical-align: inherit;
+}
+
 
 /*==================== REUSABLE CSS CLASSES ====================*/
 .section {
@@ -171,13 +186,15 @@ a.anchor {
   top: var(--header-height);  */
   /*max-width: 1024px;*/
   max-width: 768px;
-  /*max-width:680px;*/
+  /* max-width: 760px; */
+  /* max-width:680px; */
   margin-left: var(--mb-1-5);
   margin-right: var(--mb-1-5);
 }
 
 .grid {
   display: grid;
+  /* A shorthand property for the row-gap and the column-gap properties */
   gap: 1.5rem;
 }
 
@@ -292,7 +309,7 @@ a.anchor {
   padding-right: 50px;
 }
 
-.margin {
+.personalImage {
   float: right;
   width: 200px;
   margin-right: 0px;
@@ -435,6 +452,7 @@ a.anchor {
 /*==================== SERVICES ====================*/
 .services__container{
   gap: .7rem;
+  /* fr: fractional unit */
   grid-template-columns: repeat(1, 1fr);
 }
 
@@ -550,6 +568,41 @@ a.anchor {
   background: #f5f5f5,
 }
 
+/*==================== Experience ====================*/
+.experience {
+  position: relative;
+  /* background-color: var(--container-color); */
+  /* padding: 3.5rem .5rem 1.25rem 1.5rem; */
+  padding: .7rem .7rem .7rem .7rem;
+  border-radius: .25rem;
+  /* box-shadow: 0 1px 2px rgba(0,0,0,.15); */
+  transition: .3s;
+}
+
+.experience__content{
+  display: grid;
+  grid-template-columns: 150px auto;
+  /* align-items: center; */
+}
+
+.experience__content-image {
+  /* margin-bottom: 30px; */
+  /* padding-right: 10px; */
+  width:128px;
+  height:128px;
+  /* overflow:hidden; */
+}
+
+.experience__content-info {
+  padding-left: 10%;
+}
+.experience__content-title {
+  font-weight: bold;
+}
+
+.experience__content-time {
+  font-style: italic;
+}
 
 
 /*==================== FOOTER ====================*/
@@ -607,7 +660,7 @@ a.anchor {
 }
 
 @media (max-width: 960px) {
-  .margin {
+  .personalImage {
     width: 100px;
     margin-right: 0px;
     margin-left: 25px;
